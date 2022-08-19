@@ -27,7 +27,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -41,7 +40,7 @@ public class EmptyValuesTestProgrammaticLookup extends Arquillian {
     @Deployment
     public static Archive deployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "emptyValues.jar")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .addAsManifestResource(new StringAsset(
                         "empty.string=" + "\n" +
                                 "comma.string=," + "\n" +
@@ -55,7 +54,7 @@ public class EmptyValuesTestProgrammaticLookup extends Arquillian {
 
         return ShrinkWrap.create(WebArchive.class)
                 .addAsLibrary(jar)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Inject

@@ -33,7 +33,6 @@ import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.Test;
 
@@ -48,7 +47,7 @@ public class ConfigValueTest extends Arquillian {
                 .addClasses(ConfigValueBean.class)
                 .addAsServiceProvider(ConfigSource.class, ConfigValueConfigSource.class,
                         ConfigValueLowerConfigSource.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Test

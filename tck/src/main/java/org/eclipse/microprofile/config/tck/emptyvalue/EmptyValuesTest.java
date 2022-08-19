@@ -24,7 +24,6 @@ import org.jboss.arquillian.container.test.api.ShouldThrowException;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -44,12 +43,12 @@ public class EmptyValuesTest extends Arquillian {
     public static Archive deployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class, "emptyValues.jar")
                 .addClasses(EmptyValuesTest.class, EmptyValuesBean.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .addAsManifestResource(EMPTY_STRING_ASSET, "microprofile-config.properties");
 
         return ShrinkWrap.create(WebArchive.class)
                 .addAsLibrary(jar)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Inject

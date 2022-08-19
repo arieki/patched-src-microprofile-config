@@ -38,7 +38,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -50,7 +49,7 @@ import jakarta.inject.Provider;
 
 /**
  * Test cases for CDI-based API that test retrieving values from the configuration. The tests depend only on CDI 1.2.
- * 
+ *
  * @author Ondrej Mihalyi
  */
 public class CDIPlainInjectionTest extends Arquillian {
@@ -64,7 +63,7 @@ public class CDIPlainInjectionTest extends Arquillian {
                 .addClasses(CDIPlainInjectionTest.class, SimpleValuesBean.class, DynamicValuesBean.class,
                         AdditionalMatchers.class, TestConfigSource.class, DefaultPropertyBean.class)
                 .addAsServiceProvider(ConfigSource.class, TestConfigSource.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @BeforeTest

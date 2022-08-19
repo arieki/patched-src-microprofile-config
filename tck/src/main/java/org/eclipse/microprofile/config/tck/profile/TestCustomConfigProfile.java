@@ -29,7 +29,6 @@ import org.eclipse.microprofile.config.tck.configsources.CustomConfigProfileConf
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.Test;
@@ -59,7 +58,7 @@ public class TestCustomConfigProfile extends Arquillian {
                                         "%test.vehicle.name=coach\n" +
                                         "vehicle.name=car"),
                         "META-INF/microprofile-config.properties")
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
         return war;
     }
 

@@ -30,7 +30,6 @@ import org.eclipse.microprofile.config.tck.converters.custom.LongConverter;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.Assert;
@@ -51,7 +50,7 @@ public class CustomConverterTest extends Arquillian {
                 .addClass(DoubleConverter.class)
                 .addClass(BooleanConverter.class)
                 .addClass(CharacterConverter.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .addAsServiceProvider(Converter.class, IntegerConverter.class, LongConverter.class,
                         DoubleConverter.class,
                         BooleanConverter.class, CharacterConverter.class)

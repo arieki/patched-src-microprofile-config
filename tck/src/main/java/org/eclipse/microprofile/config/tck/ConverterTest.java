@@ -56,7 +56,6 @@ import org.eclipse.microprofile.config.tck.util.AdditionalAssertions;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.Assert;
@@ -82,7 +81,7 @@ public class ConverterTest extends Arquillian {
                 .addPackage(CustomDbConfigSource.class.getPackage())
                 .addClasses(DuckConverter.class, Duck.class, Donald.class, UpperCaseDuckConverter.class,
                         AdditionalAssertions.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .addAsServiceProvider(ConfigSource.class, CustomDbConfigSource.class)
                 .addAsServiceProvider(ConfigSourceProvider.class, CustomConfigSourceProvider.class)
                 .addAsServiceProvider(Converter.class, DuckConverter.class)

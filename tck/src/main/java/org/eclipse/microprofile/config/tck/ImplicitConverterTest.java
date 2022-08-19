@@ -35,7 +35,6 @@ import org.eclipse.microprofile.config.tck.converters.implicit.SomeEnumToConvert
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.Assert;
@@ -49,7 +48,7 @@ import jakarta.inject.Inject;
  * @author <a href="mailto:struberg@yahoo.de">Mark Struberg</a>
  * @author <a href="mailto:jmesnil@redhat.com">Jeff Mesnil</a>
  * @author <a href="mailto:emijiang@uk.ibm.com">Emily Jiang</a>
- * 
+ *
  */
 public class ImplicitConverterTest extends Arquillian {
 
@@ -59,7 +58,7 @@ public class ImplicitConverterTest extends Arquillian {
                 .create(JavaArchive.class, "implicitConverterTest.jar")
                 .addPackage(ConvTestTypeWStringCt.class.getPackage())
                 .addClasses(ParseConverterInjection.class, ImplicitConverterTest.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .as(JavaArchive.class);
 
         addFile(testJar, "META-INF/microprofile-config.properties");

@@ -37,7 +37,6 @@ import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.AfterMethod;
@@ -49,7 +48,7 @@ public class PropertyExpressionsTest extends Arquillian {
     public static WebArchive deployment() {
         JavaArchive testJar = ShrinkWrap
                 .create(JavaArchive.class, "PropertyExpressionsTest.jar")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsManifestResource("beans.xml", "beans.xml")
                 .as(JavaArchive.class);
 
         return ShrinkWrap

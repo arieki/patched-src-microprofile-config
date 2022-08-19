@@ -31,7 +31,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.Test;
 
@@ -45,7 +44,7 @@ public class CDIPropertyExpressionsTest extends Arquillian {
                 .create(WebArchive.class, "CDIPropertyExpressionsTest.war")
                 .addClasses(PropertyExpressionBean.class)
                 .addAsServiceProvider(ConfigSource.class, PropertyExpressionConfigSource.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Inject

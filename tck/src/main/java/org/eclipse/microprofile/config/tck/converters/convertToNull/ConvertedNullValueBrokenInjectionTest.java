@@ -28,7 +28,6 @@ import org.jboss.arquillian.container.test.api.ShouldThrowException;
 import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.Test;
@@ -55,7 +54,7 @@ public class ConvertedNullValueBrokenInjectionTest extends Arquillian {
                                 "partial.pizza=cheese"),
                         "META-INF/microprofile-config.properties")
                 .addAsServiceProvider(Converter.class, PizzaConverter.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
 
     }
 
