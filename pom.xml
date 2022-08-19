@@ -24,7 +24,7 @@
 
     <groupId>org.eclipse.microprofile.config</groupId>
     <artifactId>microprofile-config-parent</artifactId>
-    <version>3.0.1.payara-p1</version>
+    <version>3.0.1.payara-p2</version>
 
     <packaging>pom</packaging>
     <name>MicroProfile Config</name>
@@ -32,6 +32,7 @@
 
     <properties>
         <inceptionYear>2016</inceptionYear>
+        <bnd.version>6.3.1</bnd.version>
     </properties>
 
     <issueManagement>
